@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to resize images to exact dimensions or by percentage. Supports all image formats with bulk resize capability.">
+    <title>Image Resizer - Resize Photos Online for Free</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Image Resizer</h1>
+            <p>Resize your images to exact dimensions or scale them by percentage</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="upload-area" id="dropArea">
+            <input type="file" id="fileInput" accept="image/*" multiple>
+            <div class="upload-content">
+                <img src="upload-icon.svg" alt="Upload icon" width="60">
+                <p>Drag & drop images here or click to browse</p>
+                <small>Supports JPG, PNG, WEBP, GIF, SVG (Max 20MB each)</small>
+            </div>
+        </div>
+
+        <div class="options-section">
+            <div class="resize-options">
+                <div class="option-tabs">
+                    <button class="tab-btn active" data-option="dimensions">By Dimensions</button>
+                    <button class="tab-btn" data-option="percentage">By Percentage</button>
+                </div>
+
+                <div id="dimensions-options" class="option-content active">
+                    <div class="input-group">
+                        <label for="width">Width (px):</label>
+                        <input type="number" id="width" placeholder="Auto">
+                    </div>
+                    <div class="input-group">
+                        <label for="height">Height (px):</label>
+                        <input type="number" id="height" placeholder="Auto">
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="maintain-ratio" checked>
+                        <label for="maintain-ratio">Maintain aspect ratio</label>
+                    </div>
+                </div>
+
+                <div id="percentage-options" class="option-content">
+                    <div class="input-group">
+                        <label for="scale">Scale (%):</label>
+                        <input type="number" id="scale" value="100" min="1" max="500">
+                    </div>
+                </div>
+            </div>
+
+            <div class="format-options">
+                <label for="format">Output Format:</label>
+                <select id="format">
+                    <option value="original">Original Format</option>
+                    <option value="jpg">JPG</option>
+                    <option value="png">PNG</option>
+                    <option value="webp">WEBP</option>
+                </select>
+                <div class="quality-group" id="quality-container" style="display: none;">
+                    <label for="quality">Quality (1-100):</label>
+                    <input type="range" id="quality" min="1" max="100" value="90">
+                    <span id="quality-value">90</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="resize-btn" disabled>Resize Images</button>
+            <button id="download-all" disabled style="display: none;">Download All</button>
+        </div>
+
+        <div class="preview-section" id="preview-section">
+            <h3>Resized Images</h3>
+            <div class="preview-grid" id="preview-grid"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Image Resizer - Free Online Tool</p>
+            <p>All images are processed in your browser and never uploaded to any server.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
